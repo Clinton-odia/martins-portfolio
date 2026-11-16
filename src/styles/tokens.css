@@ -1,0 +1,24 @@
+:root {
+  --bg: #0A0F1A;
+  --surface: #111827;
+  --surface-2: #162033;
+  --border: #1F2A3D;
+  --text: #E6EDF7;
+  --muted: #8FA0B8;
+  --accent: #2DE2C5;
+  --accent-2: #FFB547;
+  --danger: #FF6B6B;
+}
+
+[data-theme="light"] {
+  --bg: #F7F8FA;
+  --surface: #FFFFFF;
+  --surface-2: #EEF1F5;
+  --border: #D8DEE8;
+  --text: #0B1220;
+  --muted: #52627A;
+  --accent: #0E9F8E;
+  --accent-2: #B86E00;
+  --danger: #C73A3A;
+}
+

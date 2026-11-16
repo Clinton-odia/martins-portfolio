@@ -1,0 +1,111 @@
+[
+  {
+    "id": "sensors-2024-rfeh-review",
+    "title": "Advancements and Challenges in Antenna Design and Rectifying Circuits for Radio Frequency Energy Harvesting",
+    "authors": ["M. Odiamenhi", "H. J. Basherlou", "C. H. See", "N. Ojaroudi Parchin", "K. Goh", "H. Yu"],
+    "venue": "Sensors 24(21), 6804 (MDPI)",
+    "year": 2024,
+    "type": "journal",
+    "doi": "10.3390/s24216804",
+    "url": "https://doi.org/10.3390/s24216804",
+    "abstract": "Radio-frequency energy harvesting (RFEH) is a promising method for powering low-power wireless sensor networks and IoT devices from ambient electromagnetic radiation. This comprehensive review examines contemporary developments in antenna topologies, impedance matching techniques, and nonlinear diode rectifier architectures, addressing key trade-offs in power conversion efficiency (PCE) across wide dynamic ranges.",
+    "featured": true,
+    "pillar": "rf"
+  },
+  {
+    "id": "electronics-2025-rectenna",
+    "title": "TODO(martins): Title not retrieved",
+    "authors": ["M. Odiamenhi", "C. H. See", "H. J. Basherlou"],
+    "venue": "Electronics 14(18), 3718 (MDPI)",
+    "year": 2025,
+    "type": "journal",
+    "doi": "10.3390/electronics14183718",
+    "url": "https://doi.org/10.3390/electronics14183718",
+    "abstract": "TODO(martins): Abstract pending confirmation from author records.",
+    "featured": false,
+    "pillar": "rf"
+  },
+  {
+    "id": "jpowsour-2026-storage",
+    "title": "TODO(martins): Title not retrieved (energy storage research)",
+    "authors": ["M. Odiamenhi", "F. Paul", "J. Saju", "C. H. See"],
+    "venue": "Journal of Power Sources",
+    "year": 2026,
+    "type": "journal",
+    "doi": "10.1016/j.jpowsour.2026.240059",
+    "url": "https://doi.org/10.1016/j.jpowsour.2026.240059",
+    "abstract": "TODO(martins): Abstract pending confirmation from author records.",
+    "featured": true,
+    "pillar": "energy"
+  },
+  {
+    "id": "intechopen-2025-thz",
+    "title": "An Overview of THz Antenna Design for 5G/6G Wireless Communications",
+    "authors": ["H. J. Basherlou", "M. Odiamenhi", "C. H. See", "N. Ojaroudi Parchin"],
+    "venue": "IntechOpen Book Chapter",
+    "year": 2025,
+    "type": "book-chapter",
+    "doi": "10.5772/intechopen.1010047",
+    "url": "https://doi.org/10.5772/intechopen.1010047",
+    "abstract": "Explores the transition towards Terahertz frequencies for ultra-wideband 6G communications, detailing microstrip and on-chip antenna structures, dielectric losses, and integration challenges.",
+    "featured": false,
+    "pillar": "rf"
+  },
+  {
+    "id": "ursi-2025-swipt-rectenna",
+    "title": "Compact Dual-Band Circularly Polarized Rectenna for SWIPT in Low-Power IoT and WSNs",
+    "authors": ["M. Odiamenhi", "C. H. See", "H. J. Basherlou"],
+    "venue": "URSI UK Symposium, Durham University",
+    "year": 2025,
+    "type": "conference",
+    "url": "https://napier.ac.uk/research-and-innovation/research-search/outputs/compact-dual-band-circularly-polarized-rectenna-for-swipt-in-low-power-iot-and-wsns",
+    "abstract": "Presents a compact dual-band (3.5 GHz and 5.8 GHz) 4-port circularly polarized antenna tailored for SWIPT. The architecture completely removes dedicated matching networks to avoid insertion losses, achieving inter-port isolation near -30 dB and power conversion efficiency over 60% at -10 dBm input power.",
+    "featured": true,
+    "pillar": "wsn"
+  },
+  {
+    "id": "itc-egypt-2025-swipt",
+    "title": "Dual-Band Rectenna for Simultaneous Wireless Information and Power Transfer in IoT Nodes",
+    "authors": ["M. Odiamenhi", "C. H. See", "H. J. Basherlou"],
+    "venue": "ITC-Egypt 2025, Cairo (IEEE)",
+    "year": 2025,
+    "type": "conference",
+    "abstract": "Investigation of multi-port isolation and power splitting mechanisms for dual-band SWIPT IoT nodes operating across sub-6 GHz industrial bands.",
+    "featured": false,
+    "pillar": "wsn"
+  },
+  {
+    "id": "icac-2025-healthcare",
+    "title": "Three-Port Harmonic-Rejecting SWIPT Front-End for Smart Healthcare Sensor Network",
+    "authors": ["M. Odiamenhi", "C. H. See", "H. Yu"],
+    "venue": "ICAC 2025, 30th International Conference on Automation and Computing",
+    "year": 2025,
+    "type": "conference",
+    "abstract": "Describes a 3-port harmonic-suppressing front-end designed for wearable healthcare monitoring nodes, preventing harmonic radiation re-emission and maintaining high rectification efficiency.",
+    "featured": true,
+    "pillar": "wsn"
+  },
+  {
+    "id": "conf-2024-transmission-matching",
+    "title": "A Multiple-stage Uniform Transmission Line Matching Technique for Triple-Band RF-to-DC Rectifier with Harmonic Suppression for Wireless Power Transfer Applications",
+    "authors": ["M. Odiamenhi", "C. H. See", "H. J. Basherlou"],
+    "venue": "Conference Presentation (Napier Repository)",
+    "year": 2024,
+    "type": "conference",
+    "abstract": "Presents a multi-stage transmission line matching network achieving simultaneous matching at three frequency bands while suppressing 2nd and 3rd harmonics to maximize RF-to-DC conversion efficiency.",
+    "featured": false,
+    "pillar": "rf"
+  },
+  {
+    "id": "ursi-2025-pifa-5g",
+    "title": "A PIFA Array with Enhanced Bandwidth and Isolation for 5G Smartphone Applications",
+    "authors": ["H. J. Basherlou", "M. Odiamenhi", "C. H. See"],
+    "venue": "URSI UK Symposium 2025",
+    "year": 2025,
+    "type": "conference",
+    "abstract": "Co-authored design of a compact Planar Inverted-F Antenna (PIFA) array incorporating defected ground structures (DGS) for high port isolation in mobile terminal environments.",
+    "featured": false,
+    "pillar": "rf"
+  }
+]
+

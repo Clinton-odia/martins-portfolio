@@ -1,0 +1,266 @@
+import React from 'react';
+import { site } from '../content/site.config';
+import { projects, notes, publications } from '../content/data';
+import { RFWaveHero } from '../components/RFWaveHero';
+import { StatStrip } from '../components/StatStrip';
+import { PillarCard } from '../components/PillarCard';
+import { ProjectCard } from '../components/ProjectCard';
+import { NoteCard } from '../components/NoteCard';
+import { PublicationRow } from '../components/PublicationRow';
+import { RFDivider } from '../components/RFDivider';
+import { ArrowRight, Download, Mail, BookOpen } from '../components/Icons';
+
+interface HomeProps {
+  onNavigate: (path: string) => void;
+}
+
+export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
+  const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
+  const latestNotes = notes.slice(0, 3);
+  const featuredPubs = publications.filter((p) => p.featured).slice(0, 3);
+
+  return (
+    <div className="blueprint-grid min-h-screen">
+      {/* 1. Hero Section */}
+      <section className="relative pt-12 pb-8 overflow-hidden">
+        {/* Background Radial Smith Chart subtle motif */}
+        <div className="smith-chart-bg" aria-hidden="true">
+          <svg viewBox="0 0 200 200" fill="none" stroke="var(--accent)" strokeWidth="0.8">
+            <circle cx="100" cy="100" r="90" />
+            <circle cx="145" cy="100" r="45" />
+            <circle cx="160" cy="100" r="30" />
+            <path d="M10 100 Q 100 20, 190 100" />
+            <path d="M10 100 Q 100 180, 190 100" />
+            <line x1="10" y1="100" x2="190" y2="100" />
+          </svg>
+        </div>
+
+        <div className="container relative z-10 text-center max-w-3xl mx-auto">
+          <span className="eyebrow text-xs md:text-sm">
+            RF SYSTEMS · WIRELESS POWER · ENERGY MODELLING
+          </span>
+
+          <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl text-[var(--text)] tracking-tight mb-4">
+            {site.title} {site.name}
+          </h1>
+
+          <p className="font-display font-medium text-lg sm:text-xl text-[var(--accent)] mb-3">
+            {site.headline}
+          </p>
+
+          <p className="text-sm md:text-base text-[var(--muted)] max-w-2xl mx-auto mb-6 leading-relaxed">
+            {site.heroSentence}
+          </p>
+
+          {/* Credential line */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-xs font-mono text-[var(--muted)] mb-8">
+            <span className="text-[var(--accent)] font-semibold">🎓</span>
+            <span>{site.credential}</span>
+            <span>·</span>
+            <span>{site.phdInstitution}</span>
+          </div>
+
+          {/* Call to Action Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <button
+              onClick={() => onNavigate('/research')}
+              className="btn-primary"
+            >
+              <span>View Research Pillars</span>
+              <ArrowRight size={16} />
+            </button>
+
+            <a
+              href={site.links.cv}
+              download
+              className="btn-ghost"
+            >
+              <Download size={16} />
+              <span>Download CV (PDF)</span>
+            </a>
+
+            <button
+              onClick={() => onNavigate('/contact')}
+              className="btn-ghost"
+            >
+              <Mail size={16} />
+              <span>Get in Touch</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Signature RF -> DC Animated Trace */}
+        <RFWaveHero />
+      </section>
+
+      {/* 2. Stat Strip */}
+      <section className="container">
+        <StatStrip />
+      </section>
+
+      <RFDivider />
+
+      {/* 3. Core Pillars */}
+      <section className="container py-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
+          <div>
+            <span className="eyebrow">01 / CAPABILITIES &amp; FOUNDATIONS</span>
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-[var(--text)]">
+              Core Research Pillars
+            </h2>
+          </div>
+          <button
+            onClick={() => onNavigate('/research')}
+            className="text-xs font-mono font-semibold text-[var(--accent)] hover:underline inline-flex items-center gap-1 mt-2 sm:mt-0 bg-transparent border-0 cursor-pointer p-0"
+          >
+            <span>Explore Full Framework</span>
+            <ArrowRight size={14} />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <PillarCard
+            id="rf"
+            title="RF & Microwave Systems"
+            summary="Antennas, rectennas and matching networks engineered for high efficiency at very low input power levels."
+            terms={['Rectenna Design', 'Impedance Matching', 'Harmonic Suppression']}
+            onSelect={(id) => onNavigate(`/projects?pillar=${id}`)}
+          />
+          <PillarCard
+            id="energy"
+            title="Energy Storage & Power Management"
+            summary="Nonlinear models and power conditioning approaches making intermittent harvested electromagnetic energy dependable."
+            terms={['State-Space Models', 'Power Conditioning', 'Electrochemical Storage']}
+            onSelect={(id) => onNavigate(`/projects?pillar=${id}`)}
+          />
+          <PillarCard
+            id="wsn"
+            title="Wireless Sensor Networks & Control"
+            summary="Battery-free, ultra-low-power nodes for IoT and healthcare telemetry, designed around real energy budgets."
+            terms={['SWIPT Architecture', 'IoT / WSN Nodes', 'Power-Aware Design']}
+            onSelect={(id) => onNavigate(`/projects?pillar=${id}`)}
+          />
+        </div>
+      </section>
+
+      <RFDivider />
+
+      {/* 4. Featured Projects */}
+      <section className="container py-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
+          <div>
+            <span className="eyebrow">02 / EXPERIMENTAL &amp; SIMULATED DESIGNS</span>
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-[var(--text)]">
+              Featured Engineering Projects
+            </h2>
+          </div>
+          <button
+            onClick={() => onNavigate('/projects')}
+            className="text-xs font-mono font-semibold text-[var(--accent)] hover:underline inline-flex items-center gap-1 mt-2 sm:mt-0 bg-transparent border-0 cursor-pointer p-0"
+          >
+            <span>All Projects ({projects.length})</span>
+            <ArrowRight size={14} />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featuredProjects.map((p) => (
+            <ProjectCard
+              key={p.slug}
+              project={p}
+              onOpen={(slug) => onNavigate(`/projects/${slug}`)}
+            />
+          ))}
+        </div>
+      </section>
+
+      <RFDivider />
+
+      {/* 5. Latest Lab Notes */}
+      <section className="container py-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
+          <div>
+            <span className="eyebrow">03 / LAB LOG &amp; DERIVATIONS</span>
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-[var(--text)]">
+              Engineering Notes &amp; Theory
+            </h2>
+          </div>
+          <button
+            onClick={() => onNavigate('/notes')}
+            className="text-xs font-mono font-semibold text-[var(--accent)] hover:underline inline-flex items-center gap-1 mt-2 sm:mt-0 bg-transparent border-0 cursor-pointer p-0"
+          >
+            <span>Read All Notes</span>
+            <ArrowRight size={14} />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {latestNotes.map((n) => (
+            <NoteCard
+              key={n.slug}
+              note={n}
+              onOpen={(slug) => onNavigate(`/notes/${slug}`)}
+            />
+          ))}
+        </div>
+      </section>
+
+      <RFDivider />
+
+      {/* 6. Selected Publications */}
+      <section className="container py-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
+          <div>
+            <span className="eyebrow">04 / PEER-REVIEWED LITERATURE</span>
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-[var(--text)]">
+              Selected Publications
+            </h2>
+          </div>
+          <button
+            onClick={() => onNavigate('/publications')}
+            className="text-xs font-mono font-semibold text-[var(--accent)] hover:underline inline-flex items-center gap-1 mt-2 sm:mt-0 bg-transparent border-0 cursor-pointer p-0"
+          >
+            <span>Full Bibliography ({publications.length})</span>
+            <ArrowRight size={14} />
+          </button>
+        </div>
+
+        <div className="space-y-4">
+          {featuredPubs.map((pub) => (
+            <PublicationRow key={pub.id} pub={pub} />
+          ))}
+        </div>
+      </section>
+
+      {/* 7. Closing CTA Band */}
+      <section className="container my-16">
+        <div className="rounded-2xl p-8 md:p-12 border border-[var(--border)] bg-[var(--surface)] text-center relative overflow-hidden group">
+          <div className="max-w-xl mx-auto relative z-10 space-y-4">
+            <span className="eyebrow">COLLABORATION &amp; CONSULTING</span>
+            <h3 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
+              Working on an RF or energy-harvesting challenge?
+            </h3>
+            <p className="text-sm text-[var(--muted)] leading-relaxed">
+              Available for technical discussions, peer collaboration, RF design reviews, or consultation under the Wavemind Systems research initiative.
+            </p>
+            <div className="pt-2 flex justify-center gap-3">
+              <button
+                onClick={() => onNavigate('/contact')}
+                className="btn-primary"
+              >
+                <span>Initiate Contact</span>
+                <Mail size={16} />
+              </button>
+              <button
+                onClick={() => onNavigate('/about')}
+                className="btn-ghost"
+              >
+                <span>Read Full Bio</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
