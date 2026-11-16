@@ -27,13 +27,13 @@ export const Nav: React.FC<NavProps> = ({ currentPath, onNavigate }) => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[var(--border)] bg-nav backdrop-blur-md transition-colors">
-      <div className="container flex items-center justify-between h-16">
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         {/* Brand / Logo */}
         <button
           onClick={() => handleNavClick('/')}
           className="flex items-center gap-2.5 text-left group bg-transparent border-0 cursor-pointer p-0 shrink-0"
         >
-          <div className="w-9 h-9 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center font-mono font-bold text-sm text-[var(--accent)] group-hover:border-[var(--accent)] transition-all shadow-sm relative overflow-hidden">
+          <div className="w-8 h-8 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center font-mono font-bold text-sm text-[var(--accent)] group-hover:border-[var(--accent)] transition-all shadow-sm relative overflow-hidden">
             <span className="relative z-10">⚡</span>
             <div className="absolute inset-0 bg-[var(--accent)]/5 group-hover:bg-[var(--accent)]/15 transition-colors" />
           </div>
@@ -41,24 +41,24 @@ export const Nav: React.FC<NavProps> = ({ currentPath, onNavigate }) => {
             <div className="font-display font-bold text-[var(--text)] tracking-tight text-base leading-tight group-hover:text-[var(--accent)] transition-colors">
               {site.title} {site.name}
             </div>
-            <div className="font-mono text-[10px] text-[var(--muted)] tracking-widest uppercase">
+            <div className="font-mono text-[10px] text-[var(--muted)] tracking-wider">
               RF → DC Systems
             </div>
           </div>
         </button>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1.5" aria-label="Main Navigation">
+        {/* Desktop Nav - Clean, beautifully spaced modern pills */}
+        <nav className="hidden md:flex items-center gap-1" aria-label="Main Navigation">
           {navLinks.map((link) => {
             const isActive = currentPath === link.path || (link.path !== '/' && currentPath.startsWith(link.path));
             return (
               <button
                 key={link.path}
                 onClick={() => handleNavClick(link.path)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all cursor-pointer border ${
+                className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-all cursor-pointer border ${
                   isActive
-                    ? 'text-[var(--accent)] bg-[var(--surface-2)] border-[var(--accent)]/40 font-bold shadow-sm'
-                    : 'text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)] border-transparent'
+                    ? 'text-[var(--accent)] bg-[var(--surface-2)] border-[var(--accent)]/40 font-semibold shadow-sm'
+                    : 'text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)]/60 border-transparent'
                 }`}
               >
                 {link.label}
@@ -68,11 +68,11 @@ export const Nav: React.FC<NavProps> = ({ currentPath, onNavigate }) => {
         </nav>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2.5">
           <a
             href={site.links.cv}
             download
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all text-decoration-none shadow-sm"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface-2)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all text-decoration-none shadow-sm"
           >
             <Download size={13} />
             <span>CV (PDF)</span>
@@ -83,7 +83,7 @@ export const Nav: React.FC<NavProps> = ({ currentPath, onNavigate }) => {
           {/* Mobile hamburger button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] text-[var(--text)] hover:border-[var(--accent)] cursor-pointer flex items-center justify-center transition-colors"
+            className="md:hidden p-2 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] text-[var(--text)] hover:border-[var(--accent)] cursor-pointer flex items-center justify-center transition-colors"
             aria-label="Toggle navigation drawer"
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}

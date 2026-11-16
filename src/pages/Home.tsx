@@ -95,31 +95,31 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* 2. Stat Strip */}
-      <section className="container">
+      <section className="container max-w-6xl mx-auto px-4 sm:px-6">
         <StatStrip />
       </section>
 
       <RFDivider />
 
       {/* 3. Core Pillars */}
-      <section className="container py-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
+      <section className="container max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-3 border-b border-[var(--border)]">
           <div>
             <span className="eyebrow">01 / CAPABILITIES &amp; FOUNDATIONS</span>
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-[var(--text)]">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
               Core Research Pillars
             </h2>
           </div>
           <button
             onClick={() => onNavigate('/research')}
-            className="text-xs font-mono font-semibold text-[var(--accent)] hover:underline inline-flex items-center gap-1 mt-2 sm:mt-0 bg-transparent border-0 cursor-pointer p-0"
+            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3.5 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all cursor-pointer mt-3 sm:mt-0"
           >
             <span>Explore Full Framework</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={13} />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           <PillarCard
             id="rf"
             title="RF & Microwave Systems"
@@ -147,24 +147,24 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       <RFDivider />
 
       {/* 4. Featured Projects */}
-      <section className="container py-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
+      <section className="container max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-3 border-b border-[var(--border)]">
           <div>
             <span className="eyebrow">02 / EXPERIMENTAL &amp; SIMULATED DESIGNS</span>
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-[var(--text)]">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
               Featured Engineering Projects
             </h2>
           </div>
           <button
             onClick={() => onNavigate('/projects')}
-            className="text-xs font-mono font-semibold text-[var(--accent)] hover:underline inline-flex items-center gap-1 mt-2 sm:mt-0 bg-transparent border-0 cursor-pointer p-0"
+            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3.5 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all cursor-pointer mt-3 sm:mt-0"
           >
             <span>All Projects ({projects.length})</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={13} />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {featuredProjects.map((p) => (
             <ProjectCard
               key={p.slug}
@@ -178,24 +178,24 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       <RFDivider />
 
       {/* 5. Latest Lab Notes */}
-      <section className="container py-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
+      <section className="container max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-3 border-b border-[var(--border)]">
           <div>
             <span className="eyebrow">03 / LAB LOG &amp; DERIVATIONS</span>
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-[var(--text)]">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
               Engineering Notes &amp; Theory
             </h2>
           </div>
           <button
             onClick={() => onNavigate('/notes')}
-            className="text-xs font-mono font-semibold text-[var(--accent)] hover:underline inline-flex items-center gap-1 mt-2 sm:mt-0 bg-transparent border-0 cursor-pointer p-0"
+            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3.5 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all cursor-pointer mt-3 sm:mt-0"
           >
             <span>Read All Notes</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={13} />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {latestNotes.map((n) => (
             <NoteCard
               key={n.slug}
@@ -209,20 +209,20 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       <RFDivider />
 
       {/* 6. Selected Publications */}
-      <section className="container py-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
+      <section className="container max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-3 border-b border-[var(--border)]">
           <div>
             <span className="eyebrow">04 / PEER-REVIEWED LITERATURE</span>
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-[var(--text)]">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
               Selected Publications
             </h2>
           </div>
           <button
             onClick={() => onNavigate('/publications')}
-            className="text-xs font-mono font-semibold text-[var(--accent)] hover:underline inline-flex items-center gap-1 mt-2 sm:mt-0 bg-transparent border-0 cursor-pointer p-0"
+            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3.5 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all cursor-pointer mt-3 sm:mt-0"
           >
             <span>Full Bibliography ({publications.length})</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={13} />
           </button>
         </div>
 
@@ -234,7 +234,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* 7. Closing High-Impact Engineering Banner (Inspired by template) */}
-      <section className="container my-20">
+      <section className="container max-w-6xl mx-auto px-4 sm:px-6 my-16">
         <div className="rounded-3xl p-8 sm:p-12 md:p-16 border border-[#2DE2C5]/30 bg-gradient-to-br from-[#0c2e26] via-[#09211c] to-[#071714] text-center relative overflow-hidden shadow-2xl group">
           {/* Subtle radar / wave background decoration */}
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#2DE2C5_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
