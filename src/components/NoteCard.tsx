@@ -11,22 +11,22 @@ export const NoteCard: React.FC<NoteCardProps> = ({ note, onOpen }) => {
   return (
     <div
       onClick={() => onOpen(note.slug)}
-      className="instrument-card p-6 cursor-pointer flex flex-col justify-between group"
+      className="instrument-card p-6 cursor-pointer flex flex-col justify-between group h-full shadow-md"
     >
       <div>
-        <div className="flex items-center gap-3 text-xs font-mono text-[var(--muted)] mb-2.5">
-          <span className="inline-flex items-center gap-1">
-            <Calendar size={13} />
+        <div className="flex items-center gap-3 text-xs font-mono text-[var(--muted)] mb-3">
+          <span className="inline-flex items-center gap-1.5">
+            <Calendar size={13} className="text-[var(--accent)]" />
             <span>{note.date}</span>
           </span>
           <span>·</span>
-          <span className="inline-flex items-center gap-1">
-            <Clock size={13} />
+          <span className="inline-flex items-center gap-1.5">
+            <Clock size={13} className="text-[var(--accent-2)]" />
             <span>{note.readingTime}</span>
           </span>
         </div>
 
-        <h3 className="font-display font-semibold text-lg text-[var(--text)] group-hover:text-[var(--accent)] transition-colors mb-2">
+        <h3 className="font-display font-semibold text-lg text-[var(--text)] group-hover:text-[var(--accent)] transition-colors mb-2.5 leading-snug">
           {note.title}
         </h3>
 
@@ -41,7 +41,7 @@ export const NoteCard: React.FC<NoteCardProps> = ({ note, onOpen }) => {
           {note.tags.map((t, idx) => (
             <span
               key={idx}
-              className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--surface-2)] text-[var(--muted)] border border-[var(--border)]"
+              className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--surface-2)] text-[var(--text)] border border-[var(--border)]"
             >
               #{t}
             </span>

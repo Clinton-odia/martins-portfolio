@@ -54,7 +54,7 @@ export const PublicationRow: React.FC<PublicationRowProps> = ({ pub }) => {
   };
 
   return (
-    <div className="border border-[var(--border)] rounded-xl bg-[var(--surface)] p-5 transition-colors hover:border-[var(--accent)]/40">
+    <div className="border border-[var(--border)] rounded-xl bg-[var(--surface)] p-5 transition-colors hover:border-accent-soft">
       <div className="flex flex-col md:flex-row md:items-start justify-between gap-3 mb-2">
         <div className="space-y-1">
           {/* Tags / Year */}
@@ -106,7 +106,7 @@ export const PublicationRow: React.FC<PublicationRowProps> = ({ pub }) => {
       <div className="pt-3 mt-3 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
         <button
           onClick={() => setExpanded(!expanded)}
-          className="inline-flex items-center gap-1 text-[var(--muted)] hover:text-[var(--text)] bg-transparent border-0 cursor-pointer p-0"
+          className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all cursor-pointer"
         >
           <span>{expanded ? 'Hide Abstract & BibTeX' : 'View Abstract & BibTeX'}</span>
           {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
@@ -115,17 +115,15 @@ export const PublicationRow: React.FC<PublicationRowProps> = ({ pub }) => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => copyToClipboard(citationText, 'cit')}
-            className="inline-flex items-center gap-1 text-[var(--muted)] hover:text-[var(--accent)] bg-transparent border-0 cursor-pointer p-0"
+            className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] text-[var(--muted)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all cursor-pointer"
           >
             {copiedCit ? <Check size={13} className="text-[var(--accent)]" /> : <Copy size={13} />}
             <span>{copiedCit ? 'Citation Copied' : 'Copy Citation'}</span>
           </button>
 
-          <span className="text-[var(--border)]">|</span>
-
           <button
             onClick={() => copyToClipboard(generateBibTeX(), 'bib')}
-            className="inline-flex items-center gap-1 text-[var(--muted)] hover:text-[var(--accent)] bg-transparent border-0 cursor-pointer p-0"
+            className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] text-[var(--muted)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all cursor-pointer"
           >
             {copiedBib ? <Check size={13} className="text-[var(--accent)]" /> : <Copy size={13} />}
             <span>{copiedBib ? 'BibTeX Copied' : 'Copy BibTeX'}</span>
@@ -141,7 +139,7 @@ export const PublicationRow: React.FC<PublicationRowProps> = ({ pub }) => {
               <div className="text-[11px] font-mono uppercase text-[var(--muted)] mb-1">
                 Abstract
               </div>
-              <p className="text-sm text-[var(--text)] leading-relaxed bg-[var(--surface-2)]/60 p-3.5 rounded-lg border border-[var(--border)]">
+              <p className="text-sm text-[var(--text)] leading-relaxed bg-[var(--surface-2)] p-3.5 rounded-lg border border-[var(--border)]">
                 {pub.abstract}
               </p>
             </div>

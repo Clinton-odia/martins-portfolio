@@ -74,3 +74,4 @@ export const CV: React.FC<CVProps> = ({ onNavigate }) => {
     </div>
   );
 };
+

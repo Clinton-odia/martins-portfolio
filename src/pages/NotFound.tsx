@@ -34,3 +34,4 @@ export const NotFound: React.FC<NotFoundProps> = ({ onNavigate }) => {
     </div>
   );
 };
+

@@ -162,3 +162,4 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug, onNavigate }
     </div>
   );
 };
+

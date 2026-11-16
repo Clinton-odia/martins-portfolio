@@ -15,14 +15,14 @@ export const Projects: React.FC<ProjectsProps> = ({ initialPillar, onNavigate })
     : projects.filter((p) => p.pillar === activeFilter);
 
   return (
-    <div className="blueprint-grid min-h-screen py-12">
-      <div className="container max-w-5xl mx-auto">
-        <div className="mb-10 text-center max-w-2xl mx-auto">
+    <div className="blueprint-grid min-h-screen py-16">
+      <div className="container max-w-6xl mx-auto">
+        <div className="mb-12 text-center max-w-2xl mx-auto">
           <span className="eyebrow">HARDWARE &amp; SIMULATION PORTFOLIO</span>
-          <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-[var(--text)] mb-3">
+          <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-[var(--text)] tracking-tight mb-3">
             Engineering Projects &amp; Prototypes
           </h1>
-          <p className="text-sm text-[var(--muted)] leading-relaxed">
+          <p className="text-sm sm:text-base text-[var(--muted)] leading-relaxed">
             Instrument-grade microwave architectures, multi-band rectennas, defected ground structures, and nonlinear power management simulations.
           </p>
         </div>
@@ -69,3 +69,4 @@ export const Projects: React.FC<ProjectsProps> = ({ initialPillar, onNavigate })
     </div>
   );
 };
+

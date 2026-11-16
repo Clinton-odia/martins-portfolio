@@ -22,7 +22,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <div className="blueprint-grid min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative pt-12 pb-8 overflow-hidden">
+      <section className="relative pt-20 pb-8 overflow-hidden">
         {/* Background Radial Smith Chart subtle motif */}
         <div className="smith-chart-bg" aria-hidden="true">
           <svg viewBox="0 0 200 200" fill="none" stroke="var(--accent)" strokeWidth="0.8">
@@ -35,55 +35,56 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </svg>
         </div>
 
-        <div className="container relative z-10 text-center max-w-3xl mx-auto">
-          <span className="eyebrow text-xs md:text-sm">
-            RF SYSTEMS · WIRELESS POWER · ENERGY MODELLING
-          </span>
+        <div className="container relative z-10 text-center max-w-4xl mx-auto px-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-xs font-mono text-[var(--accent)] mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
+            <span className="font-semibold tracking-wider uppercase">RF SYSTEMS · WIRELESS POWER · NONLINEAR ENERGY MODELLING</span>
+          </div>
 
-          <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl text-[var(--text)] tracking-tight mb-4">
+          <h1 className="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl text-[var(--text)] tracking-tight mb-4 leading-[1.08]">
             {site.title} {site.name}
           </h1>
 
-          <p className="font-display font-medium text-lg sm:text-xl text-[var(--accent)] mb-3">
+          <p className="font-display font-medium text-lg sm:text-2xl text-[var(--accent)] mb-4 tracking-tight max-w-2xl mx-auto">
             {site.headline}
           </p>
 
-          <p className="text-sm md:text-base text-[var(--muted)] max-w-2xl mx-auto mb-6 leading-relaxed">
+          <p className="text-sm sm:text-base text-[var(--muted)] max-w-2xl mx-auto mb-8 leading-relaxed font-body">
             {site.heroSentence}
           </p>
 
           {/* Credential line */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-xs font-mono text-[var(--muted)] mb-8">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-xs font-mono text-[var(--text)] mb-8 shadow-sm">
             <span className="text-[var(--accent)] font-semibold">🎓</span>
-            <span>{site.credential}</span>
-            <span>·</span>
-            <span>{site.phdInstitution}</span>
+            <span className="font-semibold">{site.credential}</span>
+            <span className="text-[var(--muted)]">·</span>
+            <span className="text-[var(--muted)]">{site.phdInstitution}</span>
           </div>
 
           {/* Call to Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3.5 mb-4">
             <button
               onClick={() => onNavigate('/research')}
-              className="btn-primary"
+              className="btn-primary shadow-lg"
             >
               <span>View Research Pillars</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={15} />
             </button>
 
             <a
               href={site.links.cv}
               download
-              className="btn-ghost"
+              className="btn-ghost shadow-sm"
             >
-              <Download size={16} />
+              <Download size={15} />
               <span>Download CV (PDF)</span>
             </a>
 
             <button
               onClick={() => onNavigate('/contact')}
-              className="btn-ghost"
+              className="btn-ghost shadow-sm"
             >
-              <Mail size={16} />
+              <Mail size={15} />
               <span>Get in Touch</span>
             </button>
           </div>
@@ -232,30 +233,39 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 7. Closing CTA Band */}
-      <section className="container my-16">
-        <div className="rounded-2xl p-8 md:p-12 border border-[var(--border)] bg-[var(--surface)] text-center relative overflow-hidden group">
-          <div className="max-w-xl mx-auto relative z-10 space-y-4">
-            <span className="eyebrow">COLLABORATION &amp; CONSULTING</span>
-            <h3 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
+      {/* 7. Closing High-Impact Engineering Banner (Inspired by template) */}
+      <section className="container my-20">
+        <div className="rounded-3xl p-8 sm:p-12 md:p-16 border border-[#2DE2C5]/30 bg-gradient-to-br from-[#0c2e26] via-[#09211c] to-[#071714] text-center relative overflow-hidden shadow-2xl group">
+          {/* Subtle radar / wave background decoration */}
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#2DE2C5_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+
+          <div className="max-w-2xl mx-auto relative z-10 space-y-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2DE2C5]/10 border border-[#2DE2C5]/30 text-xs font-mono text-[var(--accent)] font-semibold tracking-wider uppercase">
+              ⚡ COLLABORATION &amp; CONSULTING VISION
+            </div>
+
+            <h3 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight leading-tight">
               Working on an RF or energy-harvesting challenge?
             </h3>
-            <p className="text-sm text-[var(--muted)] leading-relaxed">
+
+            <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xl mx-auto font-body">
               Available for technical discussions, peer collaboration, RF design reviews, or consultation under the Wavemind Systems research initiative.
             </p>
-            <div className="pt-2 flex justify-center gap-3">
+
+            <div className="pt-4 flex flex-wrap justify-center gap-3.5">
               <button
                 onClick={() => onNavigate('/contact')}
-                className="btn-primary"
+                className="btn-primary py-3 px-6 text-sm font-bold shadow-lg"
               >
                 <span>Initiate Contact</span>
                 <Mail size={16} />
               </button>
               <button
                 onClick={() => onNavigate('/about')}
-                className="btn-ghost"
+                className="btn-ghost py-3 px-6 text-sm bg-white/10 text-white border-white/20 hover:border-[#2DE2C5] hover:bg-white/20 transition-all shadow-sm"
               >
                 <span>Read Full Bio</span>
+                <ArrowRight size={16} />
               </button>
             </div>
           </div>
@@ -264,3 +274,4 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     </div>
   );
 };
+

@@ -100,3 +100,4 @@ export const Notes: React.FC<NotesProps> = ({ onNavigate }) => {
     </div>
   );
 };
+

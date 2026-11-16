@@ -14,3 +14,4 @@ export const SpecChip: React.FC<SpecChipProps> = ({ label, value, className = ''
     </div>
   );
 };
+

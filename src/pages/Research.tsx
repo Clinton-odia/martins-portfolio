@@ -92,7 +92,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
             <span className="text-xs font-mono text-[var(--muted)] hidden sm:block">Click any stage to inspect design</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 select-none">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 select-none">
             {blocks.map((b, idx) => {
               const isSelected = selectedBlock === b.id;
               return (
@@ -105,13 +105,13 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
                       : 'border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent)]/50'
                   }`}
                 >
-                  <div className="text-[10px] font-mono text-[var(--muted)] uppercase mb-1">
+                  <div className="text-[10px] font-mono text-[var(--accent)] uppercase font-bold mb-1">
                     Stage 0{idx + 1}
                   </div>
                   <div className={`font-display font-semibold text-sm mb-1 ${isSelected ? 'text-[var(--accent)]' : 'text-[var(--text)]'}`}>
                     {b.label}
                   </div>
-                  <div className="text-[10px] font-mono text-[var(--muted)]">
+                  <div className="text-[11px] font-mono text-[var(--muted)]">
                     {b.sub}
                   </div>
                 </div>
@@ -284,3 +284,4 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
     </div>
   );
 };
+

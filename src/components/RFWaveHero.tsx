@@ -2,13 +2,27 @@ import React from 'react';
 
 export const RFWaveHero: React.FC = () => {
   return (
-    <div className="w-full max-w-4xl mx-auto my-6 px-2 overflow-hidden select-none" aria-hidden="true">
-      <svg
-        viewBox="0 0 900 160"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-auto drop-shadow-md"
-      >
+    <div className="w-full max-w-4xl mx-auto my-10 px-2 overflow-hidden select-none" aria-hidden="true">
+      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-6 shadow-2xl relative overflow-hidden">
+        {/* Scope Header Bar */}
+        <div className="flex items-center justify-between pb-3 mb-2 border-b border-[var(--border)] text-[10px] font-mono text-[var(--muted)]">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
+            <span className="font-semibold text-[var(--text)] uppercase tracking-wider">RF → DC CONVERSION SIGNAL SCOPE</span>
+          </div>
+          <div className="flex items-center gap-3 sm:gap-5">
+            <span className="hidden sm:inline">CH1: RF (5.8 GHz)</span>
+            <span className="text-[var(--accent-2)] font-bold">NONLINEAR DIODE</span>
+            <span className="text-[var(--accent)] font-bold">DC OUTPUT &gt;60% PCE</span>
+          </div>
+        </div>
+
+        <svg
+          viewBox="0 0 900 160"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-auto drop-shadow-md"
+        >
         <defs>
           {/* Gradients */}
           <linearGradient id="rfGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -141,6 +155,7 @@ export const RFWaveHero: React.FC = () => {
         {/* Arrowhead Terminator */}
         <polygon points="870,76 878,80 870,84" fill="var(--accent)" />
       </svg>
+      </div>
     </div>
   );
 };

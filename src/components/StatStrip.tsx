@@ -29,20 +29,23 @@ export const StatStrip: React.FC = () => {
   ];
 
   return (
-    <div className="w-full my-8">
+    <div className="w-full my-10">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {stats.map((s, idx) => (
           <div
             key={idx}
-            className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] relative overflow-hidden group hover:border-[var(--accent)]/40 transition-colors"
+            className="p-5 rounded-xl bg-[var(--surface)] border border-[var(--border)] relative overflow-hidden group hover:border-[var(--accent)] transition-all shadow-sm"
           >
-            <div className="text-[11px] font-mono text-[var(--muted)] uppercase tracking-wider mb-1">
+            {/* Top Precision Instrument Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--accent)]/80 via-[var(--accent)]/30 to-transparent" />
+
+            <div className="text-[11px] font-mono text-[var(--muted)] uppercase tracking-wider mb-2 font-semibold">
               {s.label}
             </div>
-            <div className="text-2xl font-display font-bold text-[var(--text)] tracking-tight group-hover:text-[var(--accent)] transition-colors">
+            <div className="text-2xl sm:text-3xl font-mono font-bold text-[var(--text)] tracking-tight group-hover:text-[var(--accent)] transition-colors">
               {s.value}
             </div>
-            <div className="text-xs text-[var(--muted)] mt-1 font-mono">
+            <div className="text-xs text-[var(--muted)] mt-1.5 font-mono">
               {s.sub}
             </div>
           </div>
@@ -51,3 +54,4 @@ export const StatStrip: React.FC = () => {
     </div>
   );
 };
+
