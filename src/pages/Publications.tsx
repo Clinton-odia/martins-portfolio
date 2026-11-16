@@ -75,7 +75,7 @@ export const Publications: React.FC<PublicationsProps> = () => {
             </a>
           </div>
 
-          <div className="mt-3 text-xs font-mono text-[var(--muted)]">
+          <div className="mt-3 text-xs font-mono text-(--muted)">
             <code>TODO(martins): add direct Google Scholar and ORCID profile links</code>
           </div>
         </div>

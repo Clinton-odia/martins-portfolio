@@ -99,25 +99,25 @@ body {
 
 /* ========================================================
    Direct Fallbacks for Tailwind Arbitrary Variable Syntaxes
-   (Guarantees 100% styling across all components)
+   (Supports both Tailwind v3 [var(--x)] and Tailwind v4 (--x))
    ======================================================== */
-.bg-\[var\(--bg\)\] { background-color: var(--bg) !important; }
-.bg-\[var\(--surface\)\] { background-color: var(--surface) !important; }
-.bg-\[var\(--surface-2\)\] { background-color: var(--surface-2) !important; }
-.bg-\[var\(--accent\)\] { background-color: var(--accent) !important; }
-.bg-\[var\(--accent-2\)\] { background-color: var(--accent-2) !important; }
+.bg-\(--bg\), .bg-\[var\(--bg\)\] { background-color: var(--bg) !important; }
+.bg-\(--surface\), .bg-\[var\(--surface\)\] { background-color: var(--surface) !important; }
+.bg-\(--surface-2\), .bg-\[var\(--surface-2\)\] { background-color: var(--surface-2) !important; }
+.bg-\(--accent\), .bg-\[var\(--accent\)\] { background-color: var(--accent) !important; }
+.bg-\(--accent-2\), .bg-\[var\(--accent-2\)\] { background-color: var(--accent-2) !important; }
 
-.border-\[var\(--border\)\] { border-color: var(--border) !important; }
-.border-\[var\(--accent\)\] { border-color: var(--accent) !important; }
-.border-\[var\(--muted\)\] { border-color: var(--muted) !important; }
-.border-b-\[var\(--accent\)\] { border-bottom-color: var(--accent) !important; }
-.border-l-\[var\(--border\)\] { border-left-color: var(--border) !important; }
+.border-\(--border\), .border-\[var\(--border\)\] { border-color: var(--border) !important; }
+.border-\(--accent\), .border-\[var\(--accent\)\] { border-color: var(--accent) !important; }
+.border-\(--muted\), .border-\[var\(--muted\)\] { border-color: var(--muted) !important; }
+.border-b-\(--accent\), .border-b-\[var\(--accent\)\] { border-bottom-color: var(--accent) !important; }
+.border-l-\(--border\), .border-l-\[var\(--border\)\] { border-left-color: var(--border) !important; }
 
-.text-\[var\(--text\)\] { color: var(--text) !important; }
-.text-\[var\(--muted\)\] { color: var(--muted) !important; }
-.text-\[var\(--accent\)\] { color: var(--accent) !important; }
-.text-\[var\(--accent-2\)\] { color: var(--accent-2) !important; }
-.text-\[var\(--border\)\] { color: var(--border) !important; }
+.text-\(--text\), .text-\[var\(--text\)\] { color: var(--text) !important; }
+.text-\(--muted\), .text-\[var\(--muted\)\] { color: var(--muted) !important; }
+.text-\(--accent\), .text-\[var\(--accent\)\] { color: var(--accent) !important; }
+.text-\(--accent-2\), .text-\[var\(--accent-2\)\] { color: var(--accent-2) !important; }
+.text-\(--border\), .text-\[var\(--border\)\] { color: var(--border) !important; }
 
 .hover\:border-\[var\(--accent\)\]:hover { border-color: var(--accent) !important; }
 .hover\:text-\[var\(--accent\)\]:hover { color: var(--accent) !important; }
