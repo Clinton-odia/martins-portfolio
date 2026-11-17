@@ -26,40 +26,35 @@ export const Nav: React.FC<NavProps> = ({ currentPath, onNavigate }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[var(--border)] bg-nav backdrop-blur-md transition-colors">
-      <div className="container max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+    <header className="site-header">
+      <div className="nav-container">
         {/* Brand / Logo */}
         <button
           onClick={() => handleNavClick('/')}
-          className="flex items-center gap-2.5 text-left group bg-transparent border-0 cursor-pointer p-0 shrink-0"
+          className="nav-brand"
         >
-          <div className="w-8 h-8 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center font-mono font-bold text-sm text-[var(--accent)] group-hover:border-[var(--accent)] transition-all shadow-sm relative overflow-hidden">
-            <span className="relative z-10">⚡</span>
-            <div className="absolute inset-0 bg-[var(--accent)]/5 group-hover:bg-[var(--accent)]/15 transition-colors" />
+          <div className="brand-icon">
+            <span>⚡</span>
           </div>
           <div>
-            <div className="font-display font-bold text-[var(--text)] tracking-tight text-base leading-tight group-hover:text-[var(--accent)] transition-colors">
+            <div className="brand-title">
               {site.title} {site.name}
             </div>
-            <div className="font-mono text-[10px] text-[var(--muted)] tracking-wider">
+            <div className="brand-sub">
               RF → DC Systems
             </div>
           </div>
         </button>
 
-        {/* Desktop Nav - Clean, beautifully spaced modern pills */}
-        <nav className="hidden md:flex items-center gap-1" aria-label="Main Navigation">
+        {/* Desktop Nav - Beautifully spaced modern pills */}
+        <nav className="nav-links" aria-label="Main Navigation">
           {navLinks.map((link) => {
             const isActive = currentPath === link.path || (link.path !== '/' && currentPath.startsWith(link.path));
             return (
               <button
                 key={link.path}
                 onClick={() => handleNavClick(link.path)}
-                className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-all cursor-pointer border ${
-                  isActive
-                    ? 'text-[var(--accent)] bg-[var(--surface-2)] border-[var(--accent)]/40 font-semibold shadow-sm'
-                    : 'text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)]/60 border-transparent'
-                }`}
+                className={`nav-link ${isActive ? 'active' : ''}`}
               >
                 {link.label}
               </button>
@@ -68,11 +63,11 @@ export const Nav: React.FC<NavProps> = ({ currentPath, onNavigate }) => {
         </nav>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2.5">
+        <div className="nav-actions">
           <a
             href={site.links.cv}
             download
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface-2)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all text-decoration-none shadow-sm"
+            className="btn-nav-cv"
           >
             <Download size={13} />
             <span>CV (PDF)</span>
@@ -83,7 +78,8 @@ export const Nav: React.FC<NavProps> = ({ currentPath, onNavigate }) => {
           {/* Mobile hamburger button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] text-[var(--text)] hover:border-[var(--accent)] cursor-pointer flex items-center justify-center transition-colors"
+            className="md:hidden p-2 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] text-[var(--text)] cursor-pointer flex items-center justify-center transition-colors"
+            style={{ padding: '8px', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--surface-2)', color: 'var(--text)', display: 'inline-flex' }}
             aria-label="Toggle navigation drawer"
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
@@ -93,28 +89,26 @@ export const Nav: React.FC<NavProps> = ({ currentPath, onNavigate }) => {
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="md:hidden border-b border-[var(--border)] bg-[var(--surface)] px-4 py-4 space-y-2">
+        <div style={{ borderBottom: '1px solid var(--border)', backgroundColor: 'var(--surface)', padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {navLinks.map((link) => {
             const isActive = currentPath === link.path;
             return (
               <button
                 key={link.path}
                 onClick={() => handleNavClick(link.path)}
-                className={`block w-full text-left px-3 py-2 rounded-md text-sm font-medium border-0 cursor-pointer ${
-                  isActive
-                    ? 'text-[var(--accent)] bg-[var(--surface-2)] font-semibold'
-                    : 'text-[var(--text)] bg-transparent hover:bg-[var(--surface-2)]'
-                }`}
+                className={`nav-link ${isActive ? 'active' : ''}`}
+                style={{ width: '100%', textAlign: 'left', padding: '10px 16px' }}
               >
                 {link.label}
               </button>
             );
           })}
-          <div className="pt-2 border-t border-[var(--border)] flex items-center justify-between">
+          <div style={{ paddingTop: '12px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between' }}>
             <a
               href={site.links.cv}
               download
-              className="inline-flex items-center gap-2 text-xs font-mono px-3 py-2 rounded border border-[var(--border)] bg-[var(--surface-2)] text-[var(--text)]"
+              className="btn-ghost"
+              style={{ fontSize: '12px', padding: '8px 16px', width: '100%' }}
             >
               <Download size={14} />
               <span>Download CV (PDF)</span>
@@ -125,4 +119,3 @@ export const Nav: React.FC<NavProps> = ({ currentPath, onNavigate }) => {
     </header>
   );
 };
-

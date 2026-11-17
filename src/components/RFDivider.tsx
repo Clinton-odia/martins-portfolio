@@ -2,15 +2,16 @@ import React from 'react';
 
 export const RFDivider: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <div className={`relative flex items-center justify-center my-12 w-full select-none ${className}`} aria-hidden="true">
-      <div className="w-full border-t border-[var(--border)]" />
-      <div className="absolute px-4 bg-[var(--bg)] flex items-center gap-1.5 text-[var(--accent)] font-mono text-xs">
-        <svg width="24" height="12" viewBox="0 0 40 16" fill="none" className="stroke-current">
+    <div className={`rf-divider-wrap ${className}`} aria-hidden="true">
+      <div className="rf-divider-line" />
+      <div className="rf-divider-badge">
+        <svg width="24" height="12" viewBox="0 0 40 16" fill="none" stroke="currentColor">
           <path d="M0 8 Q 5 0, 10 8 T 20 8 T 30 8 T 40 8" strokeWidth="2" strokeLinecap="round" />
         </svg>
-        <span className="text-[10px] tracking-widest text-[var(--muted)] font-semibold">RF → DC</span>
+        <span style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'var(--muted)', fontWeight: 700 }}>
+          RF → DC
+        </span>
       </div>
     </div>
   );
 };
-

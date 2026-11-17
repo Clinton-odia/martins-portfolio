@@ -8,7 +8,7 @@ import { ProjectCard } from '../components/ProjectCard';
 import { NoteCard } from '../components/NoteCard';
 import { PublicationRow } from '../components/PublicationRow';
 import { RFDivider } from '../components/RFDivider';
-import { ArrowRight, Download, Mail, BookOpen } from '../components/Icons';
+import { ArrowRight, Download, Mail } from '../components/Icons';
 
 interface HomeProps {
   onNavigate: (path: string) => void;
@@ -22,7 +22,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <div className="blueprint-grid min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative pt-20 pb-8 overflow-hidden">
+      <section className="hero-wrapper">
         {/* Background Radial Smith Chart subtle motif */}
         <div className="smith-chart-bg" aria-hidden="true">
           <svg viewBox="0 0 200 200" fill="none" stroke="var(--accent)" strokeWidth="0.8">
@@ -35,37 +35,37 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </svg>
         </div>
 
-        <div className="container relative z-10 text-center max-w-4xl mx-auto px-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-xs font-mono text-[var(--accent)] mb-6 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
-            <span className="font-semibold tracking-wider uppercase">RF SYSTEMS · WIRELESS POWER · NONLINEAR ENERGY MODELLING</span>
+        <div className="container max-w-5xl mx-auto px-4 relative z-10 text-center">
+          <div className="hero-badge-pill">
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--accent)', display: 'inline-block' }} />
+            <span>RF SYSTEMS · WIRELESS POWER · NONLINEAR ENERGY MODELLING</span>
           </div>
 
-          <h1 className="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl text-[var(--text)] tracking-tight mb-4 leading-[1.08]">
+          <h1 className="hero-title">
             {site.title} {site.name}
           </h1>
 
-          <p className="font-display font-medium text-lg sm:text-2xl text-[var(--accent)] mb-4 tracking-tight max-w-2xl mx-auto">
+          <p className="hero-headline">
             {site.headline}
           </p>
 
-          <p className="text-sm sm:text-base text-[var(--muted)] max-w-2xl mx-auto mb-8 leading-relaxed font-body">
+          <p className="hero-description">
             {site.heroSentence}
           </p>
 
           {/* Credential line */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-xs font-mono text-[var(--text)] mb-8 shadow-sm">
-            <span className="text-[var(--accent)] font-semibold">🎓</span>
-            <span className="font-semibold">{site.credential}</span>
-            <span className="text-[var(--muted)]">·</span>
-            <span className="text-[var(--muted)]">{site.phdInstitution}</span>
+          <div className="hero-credential-pill">
+            <span style={{ color: 'var(--accent)', fontWeight: 700 }}>🎓</span>
+            <span style={{ fontWeight: 600 }}>{site.credential}</span>
+            <span style={{ color: 'var(--border)' }}>·</span>
+            <span style={{ color: 'var(--muted)' }}>{site.phdInstitution}</span>
           </div>
 
           {/* Call to Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3.5 mb-4">
+          <div className="hero-button-row">
             <button
               onClick={() => onNavigate('/research')}
-              className="btn-primary shadow-lg"
+              className="btn-primary"
             >
               <span>View Research Pillars</span>
               <ArrowRight size={15} />
@@ -74,7 +74,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <a
               href={site.links.cv}
               download
-              className="btn-ghost shadow-sm"
+              className="btn-ghost"
             >
               <Download size={15} />
               <span>Download CV (PDF)</span>
@@ -82,89 +82,89 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
             <button
               onClick={() => onNavigate('/contact')}
-              className="btn-ghost shadow-sm"
+              className="btn-ghost"
             >
               <Mail size={15} />
               <span>Get in Touch</span>
             </button>
           </div>
+
+          {/* Signature RF -> DC Animated Trace */}
+          <RFWaveHero />
+
+          {/* Digital Metric Strip */}
+          <StatStrip />
         </div>
-
-        {/* Signature RF -> DC Animated Trace */}
-        <RFWaveHero />
-      </section>
-
-      {/* 2. Stat Strip */}
-      <section className="container max-w-6xl mx-auto px-4 sm:px-6">
-        <StatStrip />
       </section>
 
       <RFDivider />
 
-      {/* 3. Core Pillars */}
-      <section className="container max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-3 border-b border-[var(--border)]">
+      {/* 2. Core Pillars */}
+      <section className="container max-w-6xl mx-auto px-4 py-8">
+        <div className="section-header">
           <div>
             <span className="eyebrow">01 / CAPABILITIES &amp; FOUNDATIONS</span>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
+            <h2 className="section-title">
               Core Research Pillars
             </h2>
           </div>
           <button
             onClick={() => onNavigate('/research')}
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3.5 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all cursor-pointer mt-3 sm:mt-0"
+            className="btn-pill-subtle"
           >
             <span>Explore Full Framework</span>
             <ArrowRight size={13} />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="pillar-grid">
           <PillarCard
             id="rf"
-            title="RF & Microwave Systems"
-            summary="Antennas, rectennas and matching networks engineered for high efficiency at very low input power levels."
-            terms={['Rectenna Design', 'Impedance Matching', 'Harmonic Suppression']}
-            onSelect={(id) => onNavigate(`/projects?pillar=${id}`)}
+            title="RF &amp; Microwave Systems"
+            summary="Antennas, rectennas, native matching geometries, and harmonic suppression filters reaching >60% PCE at -10 dBm."
+            terms={['Dual-Band Rectenna', 'Harmonic Suppression', 'Nonlinear Co-Simulation', 'Circular Polarisation']}
+            onSelect={() => onNavigate('/research')}
           />
+
           <PillarCard
             id="energy"
-            title="Energy Storage & Power Management"
-            summary="Nonlinear models and power conditioning approaches making intermittent harvested electromagnetic energy dependable."
-            terms={['State-Space Models', 'Power Conditioning', 'Electrochemical Storage']}
-            onSelect={(id) => onNavigate(`/projects?pillar=${id}`)}
+            title="Energy Storage &amp; Power Management"
+            summary="Supercapacitor charging dynamics under intermittent micro-watt budgets, self-powered PMICs, and state-space equivalent models."
+            terms={['Supercapacitor Charging', 'Cold-Start PMIC', 'State-Space Modeling', 'Impedance Tracking']}
+            onSelect={() => onNavigate('/research')}
           />
+
           <PillarCard
             id="wsn"
-            title="Wireless Sensor Networks & Control"
-            summary="Battery-free, ultra-low-power nodes for IoT and healthcare telemetry, designed around real energy budgets."
-            terms={['SWIPT Architecture', 'IoT / WSN Nodes', 'Power-Aware Design']}
-            onSelect={(id) => onNavigate(`/projects?pillar=${id}`)}
+            title="Wireless Sensor Networks &amp; Control"
+            summary="Simultaneous Wireless Information & Power Transfer (SWIPT), battery-free duty-cycled sensor telemetry, and Cooja network simulation."
+            terms={['SWIPT Protocols', 'Zero-Battery IoT', 'Duty-Cycling', 'Cooja Simulator']}
+            onSelect={() => onNavigate('/research')}
           />
         </div>
       </section>
 
       <RFDivider />
 
-      {/* 4. Featured Projects */}
-      <section className="container max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-3 border-b border-[var(--border)]">
+      {/* 3. Featured Hardware Projects */}
+      <section className="container max-w-6xl mx-auto px-4 py-8">
+        <div className="section-header">
           <div>
-            <span className="eyebrow">02 / EXPERIMENTAL &amp; SIMULATED DESIGNS</span>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
-              Featured Engineering Projects
+            <span className="eyebrow">02 / HARDWARE BUILDS &amp; PROTOTYPES</span>
+            <h2 className="section-title">
+              Featured RF Projects
             </h2>
           </div>
           <button
             onClick={() => onNavigate('/projects')}
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3.5 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all cursor-pointer mt-3 sm:mt-0"
+            className="btn-pill-subtle"
           >
-            <span>All Projects ({projects.length})</span>
+            <span>All Projects</span>
             <ArrowRight size={13} />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="project-grid">
           {featuredProjects.map((p) => (
             <ProjectCard
               key={p.slug}
@@ -177,29 +177,29 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
       <RFDivider />
 
-      {/* 5. Latest Lab Notes */}
-      <section className="container max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-3 border-b border-[var(--border)]">
+      {/* 4. Engineering Notes & Lab Log */}
+      <section className="container max-w-6xl mx-auto px-4 py-8">
+        <div className="section-header">
           <div>
             <span className="eyebrow">03 / LAB LOG &amp; DERIVATIONS</span>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
-              Engineering Notes &amp; Theory
+            <h2 className="section-title">
+              Engineering Notes
             </h2>
           </div>
           <button
             onClick={() => onNavigate('/notes')}
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3.5 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all cursor-pointer mt-3 sm:mt-0"
+            className="btn-pill-subtle"
           >
-            <span>Read All Notes</span>
+            <span>Browse All Notes</span>
             <ArrowRight size={13} />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {latestNotes.map((n) => (
+        <div className="pillar-grid">
+          {latestNotes.map((note) => (
             <NoteCard
-              key={n.slug}
-              note={n}
+              key={note.slug}
+              note={note}
               onOpen={(slug) => onNavigate(`/notes/${slug}`)}
             />
           ))}
@@ -208,70 +208,59 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
       <RFDivider />
 
-      {/* 6. Selected Publications */}
-      <section className="container max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-3 border-b border-[var(--border)]">
+      {/* 5. Selected Publications */}
+      <section className="container max-w-6xl mx-auto px-4 py-8">
+        <div className="section-header">
           <div>
-            <span className="eyebrow">04 / PEER-REVIEWED LITERATURE</span>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl text-[var(--text)]">
+            <span className="eyebrow">04 / PEER-REVIEWED RESEARCH</span>
+            <h2 className="section-title">
               Selected Publications
             </h2>
           </div>
           <button
             onClick={() => onNavigate('/publications')}
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3.5 py-1.5 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--accent)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all cursor-pointer mt-3 sm:mt-0"
+            className="btn-pill-subtle"
           >
-            <span>Full Bibliography ({publications.length})</span>
+            <span>All 9+ Publications</span>
             <ArrowRight size={13} />
           </button>
         </div>
 
-        <div className="space-y-4">
+        <div className="pub-list">
           {featuredPubs.map((pub) => (
             <PublicationRow key={pub.id} pub={pub} />
           ))}
         </div>
       </section>
 
-      {/* 7. Closing High-Impact Engineering Banner (Inspired by template) */}
-      <section className="container max-w-6xl mx-auto px-4 sm:px-6 my-16">
-        <div className="rounded-3xl p-8 sm:p-12 md:p-16 border border-[#2DE2C5]/30 bg-gradient-to-br from-[#0c2e26] via-[#09211c] to-[#071714] text-center relative overflow-hidden shadow-2xl group">
-          {/* Subtle radar / wave background decoration */}
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#2DE2C5_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-
-          <div className="max-w-2xl mx-auto relative z-10 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2DE2C5]/10 border border-[#2DE2C5]/30 text-xs font-mono text-[var(--accent)] font-semibold tracking-wider uppercase">
-              ⚡ COLLABORATION &amp; CONSULTING VISION
-            </div>
-
-            <h3 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight leading-tight">
-              Working on an RF or energy-harvesting challenge?
-            </h3>
-
-            <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xl mx-auto font-body">
-              Available for technical discussions, peer collaboration, RF design reviews, or consultation under the Wavemind Systems research initiative.
-            </p>
-
-            <div className="pt-4 flex flex-wrap justify-center gap-3.5">
-              <button
-                onClick={() => onNavigate('/contact')}
-                className="btn-primary py-3 px-6 text-sm font-bold shadow-lg"
-              >
-                <span>Initiate Contact</span>
-                <Mail size={16} />
-              </button>
-              <button
-                onClick={() => onNavigate('/about')}
-                className="btn-ghost py-3 px-6 text-sm bg-white/10 text-white border-white/20 hover:border-[#2DE2C5] hover:bg-white/20 transition-all shadow-sm"
-              >
-                <span>Read Full Bio</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
+      {/* 6. Collaboration CTA */}
+      <section className="container max-w-4xl mx-auto px-4 my-16 text-center">
+        <div style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '16px', padding: '40px 24px', boxShadow: 'var(--shadow-md)', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, var(--accent-2), var(--accent))' }} />
+          <span className="eyebrow">COLLABORATION &amp; CONSULTING</span>
+          <h3 className="section-title" style={{ fontSize: '1.75rem', marginBottom: '12px' }}>
+            Working on an RF or energy-harvesting challenge?
+          </h3>
+          <p style={{ color: 'var(--muted)', maxWidth: '580px', margin: '0 auto 28px', fontSize: '0.95rem', lineHeight: '1.6' }}>
+            Available for technical discussions, peer collaboration, RF design reviews, or consultation under the Wavemind Systems research initiative.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '14px' }}>
+            <button
+              onClick={() => onNavigate('/contact')}
+              className="btn-primary"
+            >
+              <span>Initiate Contact</span>
+              <Mail size={15} />
+            </button>
+            <button
+              onClick={() => onNavigate('/about')}
+              className="btn-ghost"
+            >
+              <span>Read Full Bio</span>
+            </button>
           </div>
         </div>
       </section>
     </div>
   );
 };
-

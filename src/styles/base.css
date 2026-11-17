@@ -1,28 +1,18 @@
-@import "tailwindcss";
-@import "./tokens.css";
+/* ========================================================
+   Base Reset & System Fundamentals
+   Clean, predictable standard CSS
+   ======================================================== */
 
-@theme {
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-border: var(--border);
-  --color-text: var(--text);
-  --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  --color-accent-2: var(--accent-2);
-  --color-danger: var(--danger);
-
-  --font-display: 'Space Grotesk Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-}
-
-*, ::before, ::after {
+*, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
+  font-size: 16px;
   color-scheme: dark light;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,23 +20,73 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   min-height: 100vh;
-  margin: 0;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Faint blueprint grid */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Background blueprint grid */
 .blueprint-grid {
   background-image: 
-    linear-gradient(to right, rgba(45, 226, 197, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(45, 226, 197, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
+    linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
 }
 
-[data-theme="light"] .blueprint-grid {
-  background-image: 
-    linear-gradient(to right, rgba(14, 159, 142, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(14, 159, 142, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
+/* Smith chart radial vector accent */
+.smith-chart-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 650px;
+  pointer-events: none;
+  opacity: 0.07;
+  z-index: 0;
 }
 
+[data-theme="light"] .smith-chart-bg {
+  opacity: 0.035;
+}
+
+/* Typography Helpers */
+.font-display { font-family: var(--font-display) !important; }
+.font-body { font-family: var(--font-body) !important; }
+.font-mono { font-family: var(--font-mono) !important; }
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
